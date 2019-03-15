@@ -38,7 +38,10 @@ body {
   text-align: center;
 }
 
-.parallax-wrapper {
+#parallax-wrapper {
+  --offset-x: 0;
+  --offset-y: 0;
+
   position: relative;
   overflow: hidden;
 }
@@ -50,7 +53,7 @@ body {
   /* Source: https://css-tricks.com/centering-percentage-widthheight-elements/ */
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate3d(-50%, -50%, 0);
 
   width: 100%;
   height: 100%;
@@ -77,12 +80,22 @@ body {
   width: 110%;
   height: 110%;
   background-image: url("assets/03-stars.svg");
+  transform: translate3d(
+    calc(-2.5% * var(--offset-x) - 50%),
+    calc(-2.5% * var(--offset-y) - 50%),
+    0
+  );
 }
 
 #bg-04 {
   width: 102%;
   height: 102%;
   background-image: url("assets/04-planets.svg");
+  transform: translate3d(
+    calc(0.5% * var(--offset-x) - 50%),
+    calc(-0.5% * var(--offset-y) - 50%),
+    0
+  );
 }
 
 #bg-05 {
@@ -97,6 +110,11 @@ body {
   background-image: url("assets/07-flying-saucer.svg");
   background-position: 50% 60%;
   background-size: 15vmin;
+  transform: translate3d(
+    calc(7.5% * var(--offset-x) - 50%),
+    calc(7.5% * var(--offset-y) - 50%),
+    0
+  );
 }
 
 #bg-08 {
@@ -114,6 +132,6 @@ body {
 /* Freeze parallax layers permanently if desired */
 @media (prefers-reduced-motion: reduce) {
   .parallax-layer {
-    transform: translate(-50%, -50%) !important;
+    transform: translate3d(-50%, -50%, 0) !important;
   }
 }

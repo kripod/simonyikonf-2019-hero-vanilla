@@ -1,6 +1,4 @@
-const bg03El = document.getElementById("bg-03");
-const bg04El = document.getElementById("bg-04");
-const bg07El = document.getElementById("bg-07");
+const parallaxWrapperEl = document.getElementById("parallax-wrapper");
 
 let windowWidth;
 let windowHeight;
@@ -30,7 +28,6 @@ window.addEventListener("mousemove", e => {
   // [0, windowHeight] -> [-0.5, 0.5] (reduced sensitivity)
   offsetY = mouseY / windowHeight - 0.5;
 
-  bg03El.style.transform = parallaxLayerTransform(-2.5, -2.5);
-  bg04El.style.transform = parallaxLayerTransform(0.5, -0.5);
-  bg07El.style.transform = parallaxLayerTransform(7.5, 7.5);
+  parallaxWrapperEl.style.setProperty("--offset-x", offsetX);
+  parallaxWrapperEl.style.setProperty("--offset-y", offsetY);
 });
