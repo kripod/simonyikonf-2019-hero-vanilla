@@ -1,0 +1,119 @@
+html {
+  /* Use a better box model */
+  /* Source: https://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice/ */
+  box-sizing: border-box;
+
+  /* Fluid typography: 100% @ 600w -> 150% @ 1920w */
+  /* Source: https://css-tricks.com/snippets/css/fluid-typography/ */
+  font-family: Raleway, system-ui;
+  font-size: calc(1em + (100vw - 37.5em) / 165);
+  font-weight: 500;
+
+  /* Prevent adjustments of font size after orientation changes in iOS */
+  text-size-adjust: 100%;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+body {
+  margin: 0;
+}
+
+.text-xl {
+  font-size: 1.778rem;
+}
+
+.hero {
+  min-height: 100vh;
+}
+
+.hero-children-wrapper {
+  position: relative;
+  padding-top: 3em;
+  color: white;
+  text-align: center;
+}
+
+.parallax-wrapper {
+  position: relative;
+  overflow: hidden;
+}
+
+.parallax-layer {
+  position: absolute;
+
+  /* Center layer vertically and horizontally */
+  /* Source: https://css-tricks.com/centering-percentage-widthheight-elements/ */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  width: 100%;
+  height: 100%;
+  transition: transform 1s cubic-bezier(0, 0, 0.2, 1);
+
+  /* Default background rules */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  /* Performance-critical rule */
+  will-change: transform;
+}
+
+#bg-01 {
+  background-image: url("assets/01-background.svg");
+}
+
+#bg-02 {
+  background-image: url("assets/02-stripes.svg");
+}
+
+#bg-03 {
+  width: 110%;
+  height: 110%;
+  background-image: url("assets/03-stars.svg");
+}
+
+#bg-04 {
+  width: 102%;
+  height: 102%;
+  background-image: url("assets/04-planets.svg");
+}
+
+#bg-05 {
+  background-image: url("assets/05-ground.svg");
+}
+
+#bg-06 {
+  background-image: url("assets/06-rocks.svg");
+}
+
+#bg-07 {
+  background-image: url("assets/07-flying-saucer.svg");
+  background-position: 50% 60%;
+  background-size: 15vmin;
+}
+
+#bg-08 {
+  background-image: url("assets/08-rocket.svg");
+  background-position: 100% 100%;
+  background-size: 70vmin;
+}
+
+#bg-09 {
+  background-image: url("assets/09-thinking-monster.svg");
+  background-position: 20% 100%;
+  background-size: 30vmin;
+}
+
+/* Freeze parallax layers permanently if desired */
+@media (prefers-reduced-motion: reduce) {
+  .parallax-layer {
+    transform: translate(-50%, -50%) !important;
+  }
+}
